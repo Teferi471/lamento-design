@@ -1,0 +1,6 @@
+{
+  "name": "LAMENTO Design Studio",
+  "description": "LAMENTO Design Studio provides professional graphic design, branding, photo editing, social media design and video editing services. We Design Your Vision.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

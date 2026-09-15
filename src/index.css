@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --gold-primary: #d4af37;
+    --gold-light: #f5df88;
+    --gold-dark: #997819;
+    --gold-metallic: linear-gradient(135deg, #f7e199 0%, #d4af37 40%, #aa771c 75%, #f1d77a 100%);
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-display {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-serif-luxury {
+  font-family: 'Cinzel', serif;
+}
+
+/* Metallic gold styling utilities */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #fceec5 0%, #d4af37 45%, #b58823 80%, #f6e6aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-border {
+  border-image: linear-gradient(135deg, rgba(212, 175, 55, 0.6), rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.4)) 1;
+}
+
+.gold-metallic-btn {
+  background: linear-gradient(135deg, #ECC870 0%, #D4AF37 50%, #B8860B 100%);
+  box-shadow: 0 4px 20px -2px rgba(212, 175, 55, 0.35);
+  transition: all 0.3s ease;
+}
+
+.gold-metallic-btn:hover {
+  background: linear-gradient(135deg, #F5D88D 0%, #E0BC48 50%, #C49216 100%);
+  box-shadow: 0 6px 28px rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+}
+
+.gold-subtle-glow {
+  box-shadow: 0 0 50px -10px rgba(212, 175, 55, 0.15);
+}
+
+.luxury-card {
+  background: rgba(18, 18, 18, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  backdrop-filter: blur(12px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-card:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7), 0 0 20px -5px rgba(212, 175, 55, 0.15);
+}
+
+/* Portfolio Filter Transition Animations (Smooth Fade and Slide) */
+@keyframes portfolioFadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-portfolio-fade-slide {
+  animation: portfolioFadeSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes portfolioCardFadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-portfolio-card {
+  animation: portfolioCardFadeSlide 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Ensure Hero and Main Logo display prominently */
+.hero-logo,
+.main-logo-card {
+  display: inline-flex !important;
+}
+
