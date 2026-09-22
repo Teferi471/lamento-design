@@ -203,13 +203,54 @@ export const PAYMENT_ACCOUNTS: PaymentAccount[] = [
   },
   {
     id: 'payoneer',
-    name: 'Payoneer (International / Diaspora)',
+    name: 'Payoneer (Direct Transfer)',
     type: 'international',
     accountNumber: 'kebaradvert@gmail.com',
     accountName: 'Teferi Gonfa / Kebar Advert',
     badge: 'Worldwide (USD / EUR / GBP)',
     currency: 'USD / EUR',
     instructions: 'Payoneer account transfer gara kebaradvert@gmail.com kaffalaa ykn direct invoice gaafadhaa.',
-    accentColor: '#dc2626'
+    accentColor: '#dc2626',
+    websiteUrl: 'https://www.payoneer.com',
+    websiteLabel: 'Payoneer Website'
+  },
+  {
+    id: 'upwork',
+    name: 'Upwork (Escrow & Direct Contract)',
+    type: 'international',
+    accountNumber: 'kebaradvert@gmail.com',
+    accountName: 'Teferi Gonfa (LAMENTO)',
+    badge: 'Escrow & Milestone Safe',
+    currency: 'USD',
+    instructions: 'Hire directly on Upwork with milestone escrow protection, hourly tracking, or fixed-price contract billing.',
+    accentColor: '#14a800',
+    websiteUrl: 'https://www.upwork.com',
+    websiteLabel: 'Upwork Website'
+  },
+  {
+    id: 'fiverr',
+    name: 'Fiverr (Gig Packages & Orders)',
+    type: 'international',
+    accountNumber: 'kebaradvert@gmail.com',
+    accountName: 'Teferi Gonfa / LAMENTO Studio',
+    badge: 'Direct Buyer Protection',
+    currency: 'USD / EUR',
+    instructions: 'Order branding, 3D logo design, or video editing packages directly on Fiverr with full buyer protection.',
+    accentColor: '#1dbf73',
+    websiteUrl: 'https://www.fiverr.com',
+    websiteLabel: 'Fiverr Website'
+  },
+  {
+    id: 'freelancer',
+    name: 'Freelancer (Milestone & Contest)',
+    type: 'international',
+    accountNumber: 'kebaradvert@gmail.com',
+    accountName: 'Teferi Gonfa',
+    badge: 'Milestone Escrow',
+    currency: 'USD / AUD / GBP',
+    instructions: 'Award projects, design contests, or release milestone payments securely through Freelancer.com.',
+    accentColor: '#0082c8',
+    websiteUrl: 'https://www.freelancer.com',
+    websiteLabel: 'Freelance Website'
   }
 ];

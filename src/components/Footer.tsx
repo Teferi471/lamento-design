@@ -10,7 +10,8 @@ import {
   Linkedin, 
   Youtube, 
   Video as VideoIcon,
-  ArrowUp
+  ArrowUp,
+  ExternalLink
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -117,6 +118,41 @@ export const Footer: React.FC = () => {
                 aria-label="Email"
               >
                 <Mail className="w-4 h-4" />
+              </a>
+            </div>
+
+            {/* International Freelance & Escrow Platforms */}
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 mt-2">
+              <span className="text-[11px] text-neutral-500 font-medium mr-1">Freelance Platforms:</span>
+              <a
+                href={STUDIO_INFO.socials.upwork}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-[#14a800]/10 border border-[#14a800]/30 text-[#14a800] hover:bg-[#14a800] hover:text-white transition-all flex items-center gap-1 shadow-sm"
+                aria-label="Upwork Website"
+              >
+                <span>Upwork</span>
+                <ExternalLink className="w-2.5 h-2.5" />
+              </a>
+              <a
+                href={STUDIO_INFO.socials.fiverr}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-[#1dbf73]/10 border border-[#1dbf73]/30 text-[#1dbf73] hover:bg-[#1dbf73] hover:text-white transition-all flex items-center gap-1 shadow-sm"
+                aria-label="Fiverr Website"
+              >
+                <span>Fiverr</span>
+                <ExternalLink className="w-2.5 h-2.5" />
+              </a>
+              <a
+                href={STUDIO_INFO.socials.freelancer}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-[#0082c8]/10 border border-[#0082c8]/30 text-[#0082c8] hover:bg-[#0082c8] hover:text-white transition-all flex items-center gap-1 shadow-sm"
+                aria-label="Freelancer Website"
+              >
+                <span>Freelancer</span>
+                <ExternalLink className="w-2.5 h-2.5" />
               </a>
             </div>
           </div>

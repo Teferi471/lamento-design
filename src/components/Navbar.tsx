@@ -75,7 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenQuote }) => {
           aria-label="LAMENTO Design Studio Home"
         >
           <img
-            src="/images/logo.png"
+            src="/images/logo-transparent.png"
             alt="LAMENTO Design Studio Logo"
             className="h-8 sm:h-10 w-auto max-w-[46px] object-contain drop-shadow-[0_2px_10px_rgba(212,175,55,0.3)] transition-transform duration-300 group-hover:scale-105"
             loading="eager"

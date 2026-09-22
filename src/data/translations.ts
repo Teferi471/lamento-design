@@ -180,6 +180,11 @@ export interface TranslationData {
       serviceNeeded: string;
       projectDetails: string;
       projectDetailsPlaceholder: string;
+      uploadPhoto: string;
+      uploadPhotoHint: string;
+      uploadPhotoBtn: string;
+      uploadedPhotos: string;
+      removePhoto: string;
       submit: string;
       submitting: string;
       privacyNote: string;
@@ -414,7 +419,7 @@ export const TRANSLATIONS: Record<Language, TranslationData> = {
         branding: "Branding",
         socialMedia: "Social Media",
         printDesign: "Print",
-        photoEditing: "Photo Editing",
+        photoEditing: "Photo Retouching",
         video: "Video"
       },
       featuredOnly: "Featured Showcase",
@@ -505,11 +510,11 @@ export const TRANSLATIONS: Record<Language, TranslationData> = {
       startingFrom: "Starting from",
       paymentBadge: "Official Payment Accounts",
       paymentHeading: "Ethiopian Banks & Payment Gateways",
-      paymentSubheading: "We accept payments through all major Ethiopian commercial banks, mobile money (telebirr, M-Pesa), and Payoneer for global clients.",
+      paymentSubheading: "We accept payments through all major Ethiopian commercial banks, mobile money (telebirr, M-Pesa), and global freelance escrow platforms (Upwork, Fiverr, Freelancer, Payoneer).",
       allFilter: "All Channels",
       mobileMoneyFilter: "telebirr & M-PESA",
       banksFilter: "Ethiopian Banks",
-      internationalFilter: "Payoneer (Global)",
+      internationalFilter: "Global / Freelance (Upwork, Fiverr, Payoneer)",
       accountNumberLabel: "Account / Phone Number",
       accountHolderLabel: "Account Holder",
       copyBtn: "Copy",
@@ -537,6 +542,11 @@ export const TRANSLATIONS: Record<Language, TranslationData> = {
         serviceNeeded: "Service Needed",
         projectDetails: "Project Details",
         projectDetailsPlaceholder: "Describe your vision, requirements, timeline, or any specific ideas you have in mind...",
+        uploadPhoto: "Upload Photo / Project Files",
+        uploadPhotoHint: "Drag & drop photos, or browse (JPG, PNG, WEBP, PSD, RAW up to 25MB)",
+        uploadPhotoBtn: "Browse Photos",
+        uploadedPhotos: "Attached Photos",
+        removePhoto: "Remove",
         submit: "Send Project Request",
         submitting: "Sending Project Request...",
         privacyNote: "Your information is held in strict privacy and will only be used to discuss your project.",
@@ -772,7 +782,7 @@ export const TRANSLATIONS: Record<Language, TranslationData> = {
         branding: "Brandiingii (Branding)",
         socialMedia: "Miidiyaa Hawaasaa",
         printDesign: "Maxxansa (Print)",
-        photoEditing: "Gulaallii Suuraa",
+        photoEditing: "Qulqulleessuu Suuraa (Photo Retouching)",
         video: "Viidiyoo"
       },
       featuredOnly: "Hojiiwwan Ijoo",
@@ -863,11 +873,11 @@ export const TRANSLATIONS: Record<Language, TranslationData> = {
       startingFrom: "Kan Jalqabu",
       paymentBadge: "Lakk. Herrega Kaffaltii",
       paymentHeading: "Baankota Itiyoophiyaa fi Karaalee Kaffaltii",
-      paymentSubheading: "Baankota Itiyoophiyaa jiran hundumaa, Telebirr, M-Pesa fi maamiltoota biyya alaa fi diyyaspooraaf Payoneer ni keessummeessina.",
+      paymentSubheading: "Baankota Itiyoophiyaa jiran hundumaa, Telebirr, M-Pesa fi maamiltoota biyya alaa fi diyyaspooraaf Upwork, Fiverr, Freelancer fi Payoneer ni keessummeessina.",
       allFilter: "Hundumaa",
       mobileMoneyFilter: "Telebirr & M-Pesa",
       banksFilter: "Baankota Itiyoophiyaa",
-      internationalFilter: "Payoneer (Addunyaa)",
+      internationalFilter: "Addunyaa / Freelance (Upwork, Fiverr)",
       accountNumberLabel: "Lakk. Herregaa / Bilbilaa",
       accountHolderLabel: "Maqaa Abbaa Herregaa",
       copyBtn: "Waraabi",
@@ -895,6 +905,11 @@ export const TRANSLATIONS: Record<Language, TranslationData> = {
         serviceNeeded: "Tajaajila Barbaaddan",
         projectDetails: "Bal'ina Piroojektii",
         projectDetailsPlaceholder: "Mul'ata, ulaagaalee, yeroo xumuraa fi yaada qabdan nuuf ibsaa...",
+        uploadPhoto: "Suuraa / Faayiloota Olkaasi (Upload Photo)",
+        uploadPhotoHint: "Suuraa harkisii gadi-dhiisi ykn filadhu (JPG, PNG, WEBP, PSD, RAW hanga 25MB)",
+        uploadPhotoBtn: "Suuraa Filadhu",
+        uploadedPhotos: "Suuraalee Olkaafaman",
+        removePhoto: "Haqi",
         submit: "Gaaffii Piroojektii Ergaa",
         submitting: "Ergamaa jira...",
         privacyNote: "Odeeffannoon keessan iccitiin kan eegamu yoo ta'u dhimma piroojektii qofaaf fayyada.",
@@ -1130,7 +1145,7 @@ export const TRANSLATIONS: Record<Language, TranslationData> = {
         branding: "ብራንዲንግ (Branding)",
         socialMedia: "ማህበራዊ ሚዲያ (Social Media)",
         printDesign: "ህትመት (Print)",
-        photoEditing: "የፎቶ ኤዲቲንግ (Photo Editing)",
+        photoEditing: "የፎቶ ማሳመር (Photo Retouching)",
         video: "ቪዲዮ (Video)"
       },
       featuredOnly: "ዋና ዋና ስራዎች",
@@ -1221,11 +1236,11 @@ export const TRANSLATIONS: Record<Language, TranslationData> = {
       startingFrom: "የመነሻ ዋጋ",
       paymentBadge: "ትክክለኛ የክፍያ አካውንቶች",
       paymentHeading: "የኢትዮጵያ ባንኮች እና የክፍያ አማራጮች",
-      paymentSubheading: "ሁሉንም የኢትዮጵያ ንግድ ባንኮች፣ ቴሌብር፣ ኤም-ፔሳ (M-Pesa) እንዲሁም ለውጭ ሀገር ደንበኞች በPayoneer ክፍያዎችን እንቀበላለን።",
+      paymentSubheading: "ሁሉንም የኢትዮጵያ ንግድ ባንኮች፣ ቴሌብር፣ ኤም-ፔሳ (M-Pesa) እንዲሁም ለውጭ ሀገር ደንበኞች በUpwork፣ Fiverr፣ Freelancer እና Payoneer ክፍያዎችን እንቀበላለን።",
       allFilter: "ሁሉም",
       mobileMoneyFilter: "ቴሌብር እና M-PESA",
       banksFilter: "የኢትዮጵያ ባንኮች",
-      internationalFilter: "Payoneer (አለምአቀፍ)",
+      internationalFilter: "አለምአቀፍ / ፍሪላንስ (Upwork, Fiverr)",
       accountNumberLabel: "የአካውንት / ስልክ ቁጥር",
       accountHolderLabel: "የአካውንቱ ባለቤት",
       copyBtn: "ቅዳ",
@@ -1253,6 +1268,11 @@ export const TRANSLATIONS: Record<Language, TranslationData> = {
         serviceNeeded: "የሚፈልጉት አገልግሎት",
         projectDetails: "የስራው ዝርዝር",
         projectDetailsPlaceholder: "ስለ ራዕይዎ፣ ስለሚፈልጉት ጊዜ እና ልዩ ሀሳቦች ያብራሩልን...",
+        uploadPhoto: "ፎቶ / የስራ ማጣቀሻዎችን ጫን (Upload Photo)",
+        uploadPhotoHint: "ፎቶዎችን ጎትተው ይጣሉ ወይም ይምረጡ (JPG, PNG, WEBP, PSD, RAW እስከ 25MB)",
+        uploadPhotoBtn: "ፎቶዎችን ምረጥ",
+        uploadedPhotos: "የተያያዙ ፎቶዎች",
+        removePhoto: "አስወግድ",
         submit: "የስራ ጥያቄውን ይላኩ",
         submitting: "በመላክ ላይ...",
         privacyNote: "መረጃዎ በሚስጥር የተጠበቀ ነው፤ ለዚህ ስራ ውይይት ብቻ ጥቅም ላይ ይውላል።",

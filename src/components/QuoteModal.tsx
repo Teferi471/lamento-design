@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { STUDIO_INFO } from '../data/content';
 import { X, CheckCircle2, MessageCircle, Send } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { PhotoUploadZone } from './PhotoUploadZone';
+import { UploadedPhoto } from '../types';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -25,6 +27,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     projectDetails: ''
   });
 
+  const [uploadedPhotos, setUploadedPhotos] = useState<UploadedPhoto[]>([]);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -47,6 +50,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
   const handleReset = () => {
     setSubmitted(false);
+    setUploadedPhotos([]);
     onClose();
   };
 
@@ -89,11 +93,19 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
               <p className="text-sm text-neutral-300 max-w-md mx-auto leading-relaxed">
                 {t.contact.form.successMessage}
               </p>
+
+              {uploadedPhotos.length > 0 && (
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/30 text-xs text-[#d4af37]">
+                  <span>{uploadedPhotos.length} photo(s) attached with your quote request</span>
+                </div>
+              )}
               
               <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
-                  href={`https://wa.me/251911234567?text=${encodeURIComponent(
-                    `Hello LAMENTO, I just requested a quote for ${formData.serviceNeeded}. Name: ${formData.name}.`
+                  href={`https://wa.me/${STUDIO_INFO.phoneRaw}?text=${encodeURIComponent(
+                    `Hello Teferi Gonfa / LAMENTO, I just requested a quote for ${formData.serviceNeeded}. Name: ${formData.name}${
+                      uploadedPhotos.length > 0 ? ` with ${uploadedPhotos.length} photo(s) attached (${uploadedPhotos.map(p => p.name).join(', ')})` : ''
+                    }.`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -208,6 +220,16 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   className="w-full px-4 py-3 rounded-xl bg-[#141414] border border-white/10 focus:border-[#d4af37] text-white text-sm focus:outline-none resize-none"
                 />
               </div>
+
+              {/* Photo Upload Zone */}
+              <PhotoUploadZone
+                photos={uploadedPhotos}
+                onPhotosChange={setUploadedPhotos}
+                label={t.contact.form.uploadPhoto}
+                hint={t.contact.form.uploadPhotoHint}
+                compact={true}
+                idPrefix="modal-photo"
+              />
 
               {/* Actions */}
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">

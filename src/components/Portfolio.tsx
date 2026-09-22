@@ -26,7 +26,12 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onRequestProject }) => {
 
   const filteredProjects = activeCategory === 'All'
     ? PORTFOLIO_ITEMS
-    : PORTFOLIO_ITEMS.filter((item) => item.category === activeCategory);
+    : PORTFOLIO_ITEMS.filter((item) => {
+        if (activeCategory === 'Photo Editing') {
+          return item.category === 'Photo Editing' || (item.category as string) === 'Photo Retouching';
+        }
+        return item.category === activeCategory;
+      });
 
   return (
     <section id="portfolio" className="py-24 bg-[#0a0a0a] relative border-t border-white/5">

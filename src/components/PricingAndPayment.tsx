@@ -13,8 +13,13 @@ import {
   ShieldCheck, 
   Send,
   MessageCircle,
-  Receipt
+  Receipt,
+  ExternalLink,
+  UploadCloud,
+  Camera
 } from 'lucide-react';
+import { PhotoUploadZone } from './PhotoUploadZone';
+import { UploadedPhoto } from '../types';
 
 interface PricingAndPaymentProps {
   onSelectPackage: (packageName: string) => void;
@@ -30,6 +35,8 @@ export const PricingAndPayment: React.FC<PricingAndPaymentProps> = ({
   const [activeTab, setActiveTab] = useState<'banks' | 'packages' | 'rates'>('banks');
   const [bankFilter, setBankFilter] = useState<'all' | 'mobile_money' | 'bank' | 'international'>('all');
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [receiptPhotos, setReceiptPhotos] = useState<UploadedPhoto[]>([]);
+  const [showReceiptUploader, setShowReceiptUploader] = useState(false);
 
   const handleCopy = (id: string, textToCopy: string) => {
     try {
@@ -199,6 +206,64 @@ export const PricingAndPayment: React.FC<PricingAndPaymentProps> = ({
               </button>
             </div>
 
+            {/* Dedicated International Freelance Websites Quick-Bar */}
+            <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-[#121212] via-[#16140f] to-[#121212] border border-[#d4af37]/30 shadow-lg">
+              <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3 text-center lg:text-left">
+                  <div className="p-2.5 rounded-xl bg-[#d4af37]/15 border border-[#d4af37]/30 text-[#d4af37] flex-shrink-0">
+                    <Globe className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm sm:text-base font-bold text-white flex items-center gap-2 justify-center lg:justify-start">
+                      <span>International Freelance Websites & Escrow Payment</span>
+                      <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                    </h4>
+                    <p className="text-xs text-neutral-400">
+                      Hire directly, order design packages, or pay safely via verified escrow contracts on official platforms:
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-center gap-2.5 w-full lg:w-auto">
+                  {/* Upwork Website */}
+                  <a
+                    href="https://www.upwork.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#14a800]/15 hover:bg-[#14a800] text-[#14a800] hover:text-white border border-[#14a800]/40 transition-all duration-200 flex items-center gap-1.5 shadow-sm group/btn"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-[#14a800] group-hover/btn:bg-white" />
+                    <span>Upwork Website</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+
+                  {/* Fiverr Website */}
+                  <a
+                    href="https://www.fiverr.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#1dbf73]/15 hover:bg-[#1dbf73] text-[#1dbf73] hover:text-white border border-[#1dbf73]/40 transition-all duration-200 flex items-center gap-1.5 shadow-sm group/btn"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-[#1dbf73] group-hover/btn:bg-white" />
+                    <span>Fiverr Website</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+
+                  {/* Freelancer Website */}
+                  <a
+                    href="https://www.freelancer.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#0082c8]/15 hover:bg-[#0082c8] text-[#0082c8] hover:text-white border border-[#0082c8]/40 transition-all duration-200 flex items-center gap-1.5 shadow-sm group/btn"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-[#0082c8] group-hover/btn:bg-white" />
+                    <span>Freelancer Website</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
             {/* Bank Accounts Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
               {filteredAccounts.map((account) => {
@@ -242,7 +307,9 @@ export const PricingAndPayment: React.FC<PricingAndPaymentProps> = ({
                       <div className="my-3 p-3 rounded-xl bg-[#0a0a0a] border border-white/10 flex items-center justify-between gap-2 group-hover:border-[#d4af37]/40 transition-colors">
                         <div className="min-w-0 flex-1 pr-2">
                           <span className="block text-[10px] text-neutral-500 font-medium uppercase tracking-wider mb-0.5">
-                            {account.type === 'international' ? 'Payoneer Email' : t.pricing.accountNumberLabel}
+                            {account.type === 'international' 
+                              ? `${account.name.split(' ')[0]} Email / Direct Account` 
+                              : t.pricing.accountNumberLabel}
                           </span>
                           <span className="font-mono text-sm sm:text-base font-bold text-[#f5df88] tracking-wide select-all break-all">
                             {account.accountNumber}
@@ -278,9 +345,22 @@ export const PricingAndPayment: React.FC<PricingAndPaymentProps> = ({
                       </div>
 
                       {/* Short Instructions */}
-                      <p className="text-[11px] text-neutral-400 leading-relaxed">
+                      <p className="text-[11px] text-neutral-400 leading-relaxed mb-1">
                         {account.instructions}
                       </p>
+
+                      {/* Optional Direct Website Button (Upwork, Fiverr, Freelancer, Payoneer) */}
+                      {account.websiteUrl && (
+                        <a
+                          href={account.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 w-full py-2 px-3 rounded-xl bg-white/[0.06] hover:bg-[#d4af37]/20 border border-white/10 hover:border-[#d4af37]/50 text-xs font-semibold text-neutral-200 hover:text-white flex items-center justify-center gap-1.5 transition-all duration-200 group/link"
+                        >
+                          <span>{account.websiteLabel || 'Visit Website'}</span>
+                          <ExternalLink className="w-3.5 h-3.5 text-[#d4af37] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                        </a>
+                      )}
                     </div>
                   </div>
                 );
@@ -289,7 +369,7 @@ export const PricingAndPayment: React.FC<PricingAndPaymentProps> = ({
 
             {/* Payment Verification & Screenshot WhatsApp Box */}
             <div className="max-w-4xl mx-auto p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#14120b] via-[#1a170f] to-[#14120b] border border-[#d4af37]/30 shadow-2xl relative">
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-4">
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-2xl bg-[#d4af37]/10 border border-[#d4af37]/30 text-[#d4af37] flex-shrink-0">
                     <Receipt className="w-6 h-6" />
@@ -305,18 +385,52 @@ export const PricingAndPayment: React.FC<PricingAndPaymentProps> = ({
                   </div>
                 </div>
 
-                <a
-                  href={`https://wa.me/251959215575?text=${encodeURIComponent(
-                    "Hello Teferi Gonfa / Lamento Design Studio, I have transferred payment for my design project. Here is my transaction slip / screenshot."
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-semibold flex items-center gap-2 shadow-lg shadow-emerald-900/30 whitespace-nowrap transition-all duration-200 cursor-pointer flex-shrink-0 hover:scale-102"
-                >
-                  <MessageCircle className="w-4 h-4 fill-white" />
-                  <span>{t.pricing.confirmOnWhatsapp}</span>
-                </a>
+                <div className="flex flex-col sm:flex-row items-center gap-2.5 w-full sm:w-auto flex-shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => setShowReceiptUploader(!showReceiptUploader)}
+                    className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                  >
+                    <Camera className="w-4 h-4 text-[#d4af37]" />
+                    <span>{showReceiptUploader ? 'Hide Uploader' : 'Attach Receipt Photo'}</span>
+                  </button>
+
+                  <a
+                    href={`https://wa.me/251959215575?text=${encodeURIComponent(
+                      `Hello Teferi Gonfa / Lamento Design Studio, I have transferred payment for my design project. Here is my transaction slip / screenshot${
+                        receiptPhotos.length > 0 ? ` (${receiptPhotos.map(p => p.name).join(', ')})` : ''
+                      }.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30 whitespace-nowrap transition-all duration-200 cursor-pointer hover:scale-102"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-white" />
+                    <span>{t.pricing.confirmOnWhatsapp}</span>
+                  </a>
+                </div>
               </div>
+
+              {/* Collapsible Receipt Photo Upload Zone */}
+              {showReceiptUploader && (
+                <div className="pt-4 border-t border-white/10 animate-in fade-in duration-200">
+                  <PhotoUploadZone
+                    photos={receiptPhotos}
+                    onPhotosChange={setReceiptPhotos}
+                    label="Upload Bank Transfer / Telebirr Receipt Photo"
+                    hint="Drag & drop your payment transaction receipt or screenshot (JPG, PNG, WEBP up to 25MB)"
+                    compact={true}
+                    maxFiles={3}
+                    idPrefix="receipt-upload"
+                  />
+                  {receiptPhotos.length > 0 && (
+                    <p className="mt-2 text-xs text-emerald-400 flex items-center gap-1.5">
+                      <Check className="w-3.5 h-3.5 stroke-[3]" />
+                      <span>Receipt screenshot ready! Click &quot;{t.pricing.confirmOnWhatsapp}&quot; to notify the studio immediately.</span>
+                    </p>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         )}

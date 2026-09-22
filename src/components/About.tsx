@@ -1,6 +1,7 @@
 import React from 'react';
 import { Target, Sparkles, Layers, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { Logo } from './Logo';
 
 export const About: React.FC = () => {
   const { t } = useLanguage();
@@ -29,11 +30,14 @@ export const About: React.FC = () => {
                 
                 {/* Floating Studio Credential Badge */}
                 <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-[#0c0c0c]/90 border border-[#d4af37]/30 backdrop-blur-md flex items-center justify-between">
-                  <div>
-                    <div className="text-xs uppercase tracking-widest text-[#d4af37] font-semibold">Visionary Craft</div>
-                    <div className="text-sm font-bold text-white">LAMENTO Design Studio</div>
+                  <div className="flex items-center gap-3">
+                    <Logo size="sm" id="about-studio-logo" className="h-8 sm:h-9 w-auto flex-shrink-0" />
+                    <div>
+                      <div className="text-xs uppercase tracking-widest text-[#d4af37] font-semibold">Visionary Craft</div>
+                      <div className="text-sm font-bold text-white">LAMENTO Design Studio</div>
+                    </div>
                   </div>
-                  <div className="w-10 h-10 rounded-lg bg-[#1a1711] border border-[#d4af37]/40 flex items-center justify-center text-[#d4af37]">
+                  <div className="w-10 h-10 rounded-lg bg-[#1a1711] border border-[#d4af37]/40 flex items-center justify-center text-[#d4af37] flex-shrink-0">
                     <Sparkles className="w-5 h-5" />
                   </div>
                 </div>

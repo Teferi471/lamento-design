@@ -28,7 +28,10 @@ export const STUDIO_INFO = {
     instagram: "https://instagram.com/lamentodesignstudio",
     tiktok: "https://tiktok.com/@lamentodesignstudio",
     youtube: "https://youtube.com/@lamentodesignstudio",
-    linkedin: "https://linkedin.com/company/lamento-design-studio"
+    linkedin: "https://linkedin.com/company/lamento-design-studio",
+    upwork: "https://www.upwork.com",
+    fiverr: "https://www.fiverr.com",
+    freelancer: "https://www.freelancer.com"
   }
 };
 
@@ -122,6 +125,171 @@ export const SERVICES: ServiceItem[] = [
 
 export const PORTFOLIO_ITEMS: PortfolioProject[] = [
   {
+    id: "lamento-creator-badge",
+    title: "LAMENTO Creative Identity & Creator Insignia",
+    category: "Logos",
+    shortDesc: "Signature creator brand emblem, golden royal crown, quill insignia, and multi-discipline creative suite.",
+    fullDesc: "Official creator insignia designed for Lead Designer Teferi Gonfa (LAMENTO). Featuring the signature royal blue hoodie portrait framed by a glowing circular golden crest, gold king crown, precision golden quill, bold 3D metallic typography, and core creative software disciplines: Photoshop, Illustrator, Premiere Pro, and Brand Design.",
+    imageUrl: "/images/lamento-creator-badge.jpg",
+    client: "LAMENTO Design Studio (Founder Identity)",
+    deliverables: ["Official Creator Crest", "3D Gold Typography", "Social Media Avatar Suite", "Vector Identity Suite"],
+    featured: true
+  },
+  {
+    id: "habesha-skin-transformation",
+    title: "Habesha Traditional Bridal Profile Retouch",
+    category: "Photo Editing",
+    shortDesc: "Traditional Ethiopian bridal skin transformation, severe acne & hyperpigmentation removal with pristine natural skin tone.",
+    fullDesc: "Masterclass portrait retouching for an Ethiopian bride wearing traditional gold Habesha jewelry and crimson attire. Preserved organic facial geometry, sculpted the jawline, and removed severe inflammatory blemishes while retaining authentic melanated skin texture and soft ambient highlight reflections.",
+    imageUrl: "/images/habesha-skin-transformation.jpg",
+    beforeImageUrl: "/images/habesha-before.jpg",
+    afterImageUrl: "/images/habesha-after.jpg",
+    client: "LAMENTO Habesha Bridal & Beauty Atelier",
+    deliverables: ["Before & After Comparison", "High-End Skin Smoothing", "Melanin Tone Harmony", "Jewelry Luster Preservation"],
+    featured: true
+  },
+  {
+    id: "african-skin-transformation",
+    title: "Gogaa Fuulaa African Skin Glow Transformation",
+    category: "Photo Editing",
+    shortDesc: "Warm African portrait skin transformation, severe acne relief, natural freckle preservation, and golden studio radiance.",
+    fullDesc: "Comprehensive 'Gogaa Fuulaa' facial skin transformation on a warm African portrait. Carefully balanced natural cheek freckles, eradicated stubborn breakouts, and produced a velvety, radiant glow without artificial plastic blur.",
+    imageUrl: "/images/african-skin-transformation.jpg",
+    beforeImageUrl: "/images/african-skin-before.jpg",
+    afterImageUrl: "/images/african-skin-after.jpg",
+    client: "LAMENTO Dermatological & Beauty Campaign",
+    deliverables: ["Blemish Eradication", "Pore & Freckle Texture Retention", "Radiant Glow Enhancement", "Color Grade Balance"],
+    featured: true
+  },
+  {
+    id: "hair-curly-transformation",
+    title: "Honey Blonde Voluminous Hair & Style Transformation",
+    category: "Photo Editing",
+    shortDesc: "High-precision hair color and texture makeover: sleek straight hair transformed into rich honey-blonde curls.",
+    fullDesc: "Specialized photographic hair transformation. Digitally re-sculpted straight black hair into bouncy, voluminous honey-blonde curly afro-curls with curly fringe bangs, harmonizing skin tone warmth and specular reflections.",
+    imageUrl: "/images/hair-curly-transformation.jpg",
+    beforeImageUrl: "/images/hair-before.jpg",
+    afterImageUrl: "/images/hair-after.jpg",
+    client: "LAMENTO Hair Salon & Fashion Atelier",
+    deliverables: ["Hair Color Transformation", "Curl Volume Sculpting", "Specular Light Integration", "Edge Blending"],
+    featured: true
+  },
+  {
+    id: "lamento-official-3d-logo",
+    title: "LAMENTO 3D Metallic Gold Studio Emblem",
+    category: "Logos",
+    shortDesc: "Signature sculpted 3D metallic gold insignia on luxury stitched black leather with fountain pen nib.",
+    fullDesc: "The studio's premier flagship 3D visual mark: sculpted metallic gold letterform entwined with a luxury golden fountain pen nib, set against fine-grained stitched black leather with subtle ambient reflections.",
+    imageUrl: "/images/lamento-3d-gold-logo.jpg",
+    client: "LAMENTO Design Studio",
+    deliverables: ["Official 3D Insignia", "Full Vector Suite", "Transparent WebP & PNG", "Brand Identity Guidelines"],
+    featured: true
+  },
+  {
+    id: "portrait-retouch-before-after",
+    title: "Commercial Portrait Skin & Lighting Retouch",
+    category: "Photo Editing",
+    shortDesc: "Side-by-side high-end portrait retouching, blemish correction, frequency separation, and studio lighting balancing.",
+    fullDesc: "Complete high-precision photographic post-production. Transformed raw camera capture into pristine commercial studio portraiture: skin smoothing with preserved natural micro-textures, delicate blemish removal, studio lighting & shadow balancing, refined eye clarity, and pristine background cleanup.",
+    imageUrl: "/images/photo-retouch-before-after.jpg",
+    beforeImageUrl: "/images/photo-retouch-before.jpg",
+    afterImageUrl: "/images/photo-retouch-after.jpg",
+    client: "LAMENTO Commercial Portrait Studio",
+    deliverables: ["Before & After Retouch", "Frequency Separation", "Studio Skin Smoothing", "Lighting & Tone Balancing", "High-End Color Grading"],
+    featured: true
+  },
+  {
+    id: "portrait-retouch-beauty-2",
+    title: "High-End Beauty & Skin Smoothing Retouch",
+    category: "Photo Editing",
+    shortDesc: "Magazine editorial skin retouching, frequency separation, natural texture preservation, and radiant tone grading.",
+    fullDesc: "High-end beauty retouching highlighting radiant, luminous skin while preserving organic skin pore texture. Performed micro-frequency separation, dark circle reduction, dental brightening, and balanced specular highlights.",
+    imageUrl: "/images/photo-retouch-showcase-2.jpg",
+    beforeImageUrl: "/images/photo-retouch-before-2.jpg",
+    afterImageUrl: "/images/photo-retouch-after-2.jpg",
+    client: "LAMENTO Commercial Beauty",
+    deliverables: ["Micro Frequency Separation", "Skin Smoothing", "Natural Texture Preservation", "Specular Balancing"],
+    featured: true
+  },
+  {
+    id: "portrait-retouch-male-3",
+    title: "Male Editorial Portrait & Lighting Balance",
+    category: "Photo Editing",
+    shortDesc: "Refined male portrait retouching, beard/hair definition enhancement, and cinematic studio rim lighting.",
+    fullDesc: "Editorial male portrait retouching balancing deep masculine tones, shadow definition, skin texture evening, eye enhancement, and crisp edge lighting for commercial advertising.",
+    imageUrl: "/images/photo-retouch-showcase-3.jpg",
+    beforeImageUrl: "/images/photo-retouch-before-3.jpg",
+    afterImageUrl: "/images/photo-retouch-after-3.jpg",
+    client: "LAMENTO Editorial Studio",
+    deliverables: ["Tone Balancing", "Beard & Hair Sharpening", "Shadow Sculpting", "Editorial Color Grade"],
+    featured: true
+  },
+  {
+    id: "fashion-retouch-golden-hour-4",
+    title: "Fashion Golden Hour Editorial Color Grading",
+    category: "Photo Editing",
+    shortDesc: "Atmospheric outdoor portrait lighting correction, golden hour warmth, and vibrant color balancing.",
+    fullDesc: "Converted overcast flat outdoor lighting into a luminous golden-hour fashion visual. Balanced hair reflections, brought out vibrant clothing tones, and removed distracting background background elements.",
+    imageUrl: "/images/photo-retouch-showcase-4.jpg",
+    beforeImageUrl: "/images/photo-retouch-before-4.jpg",
+    afterImageUrl: "/images/photo-retouch-after-4.jpg",
+    client: "LAMENTO Fashion Lookbook",
+    deliverables: ["Golden Hour Lighting", "Vibrant Color Correction", "Sky & Atmosphere Balancing", "Subject Isolation"],
+    featured: true
+  },
+  {
+    id: "product-jewelry-polish-5",
+    title: "Luxury Commercial Jewelry & Timepiece Polish",
+    category: "Photo Editing",
+    shortDesc: "High-precision commercial product retouching, glare cleanup, metallic luster enhancement, and clean gradient background.",
+    fullDesc: "Macro commercial product retouching for luxury jewelry and timepieces. Removed dust specks, handled metallic mirror reflections, smoothed edge micro-scratches, and rendered pristine commercial reflections.",
+    imageUrl: "/images/photo-retouch-showcase-5.jpg",
+    beforeImageUrl: "/images/photo-retouch-before-5.jpg",
+    afterImageUrl: "/images/photo-retouch-after-5.jpg",
+    client: "LAMENTO Luxury Commercial",
+    deliverables: ["Dust & Scratch Removal", "Reflective Surface Polish", "Precision Cutout", "Commercial Shadow Compositing"],
+    featured: true
+  },
+  {
+    id: "bridal-portrait-retouch-6",
+    title: "Romantic Bridal & Atmosphere Lighting Retouch",
+    category: "Photo Editing",
+    shortDesc: "Gentle romantic skin smoothing, veil detail recovery, shadow softening, and warm wedding color harmony.",
+    fullDesc: "Sensitive wedding and bridal portrait post-production. Preserved delicate veil lace textures, evened out outdoor shadow transitions on skin, and infused dreamy romantic warmth.",
+    imageUrl: "/images/photo-retouch-showcase-6.jpg",
+    beforeImageUrl: "/images/photo-retouch-before-6.jpg",
+    afterImageUrl: "/images/photo-retouch-after-6.jpg",
+    client: "LAMENTO Bridal & Event Atelier",
+    deliverables: ["Veil Texture Recovery", "Shadow Softening", "Bridal Glow", "Romantic Color Grading"],
+    featured: false
+  },
+  {
+    id: "editorial-makeup-retouch-7",
+    title: "High-Fashion Editorial Beauty & Makeup Retouch",
+    category: "Photo Editing",
+    shortDesc: "Macro cosmetic photography retouching, lips and eye makeup perfection, and high-gloss highlight balancing.",
+    fullDesc: "Close-up macro cosmetic beauty post-processing. Cleaned lip line symmetry, enhanced glossy lipstick luster, balanced eye shadow transitions, and smoothed skin undertones without flattening natural skin geometry.",
+    imageUrl: "/images/photo-retouch-showcase-7.jpg",
+    beforeImageUrl: "/images/photo-retouch-before-7.jpg",
+    afterImageUrl: "/images/photo-retouch-after-7.jpg",
+    client: "LAMENTO Cosmetic Campaign",
+    deliverables: ["Macro Makeup Cleanup", "Gloss & Highlight Balancing", "Skin Pore Preservation", "High-Fashion Grading"],
+    featured: false
+  },
+  {
+    id: "cinematic-background-retouch-8",
+    title: "Studio Background Replacement & Cinematic Grade",
+    category: "Photo Editing",
+    shortDesc: "Complex studio hair masking, clean background replacement, rim light integration, and cinematic grading.",
+    fullDesc: "Advanced subject compositing and background replacement. Extracted fine hair strands, composited dramatic dark luxury backdrop with custom rim lighting, and blended studio atmosphere seamlessly.",
+    imageUrl: "/images/photo-retouch-showcase-8.jpg",
+    beforeImageUrl: "/images/photo-retouch-before-8.jpg",
+    afterImageUrl: "/images/photo-retouch-after-8.jpg",
+    client: "LAMENTO Cinematic Studio",
+    deliverables: ["Advanced Hair Masking", "Custom Background Replacement", "Atmosphere & Rim Lighting", "Cinematic Composite"],
+    featured: false
+  },
+  {
     id: "aurora-luxury-branding",
     title: "Aura Haute Joaillerie Identity",
     category: "Branding",
@@ -130,6 +298,17 @@ export const PORTFOLIO_ITEMS: PortfolioProject[] = [
     imageUrl: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1200&auto=format&fit=crop",
     client: "Aura Jewels & Atelier",
     deliverables: ["Brand Identity", "Gold Foil Packaging", "Visual Guidelines", "Custom Monogram"],
+    featured: true
+  },
+  {
+    id: "lamento-official-3d-logo",
+    title: "LAMENTO 3D Metallic Gold Studio Logo",
+    category: "Logos",
+    shortDesc: "Official signature 3D metallic gold insignia crafted with sculpted bevels and ambient studio reflections.",
+    fullDesc: "The studio's premier flagship visual mark: a precision-sculpted metallic gold emblem with realistic micro-reflections, brushed metal highlights, and deep luxury shadows. Mastered for ultra-high-definition displays, print embroidery, and luxury foil stamping.",
+    imageUrl: "/lamento-logo.png",
+    client: "LAMENTO Design Studio",
+    deliverables: ["Official 3D Insignia", "Full Vector Suite", "Transparent WebP & PNG", "Brand Identity Guidelines"],
     featured: true
   },
   {
@@ -175,6 +354,28 @@ export const PORTFOLIO_ITEMS: PortfolioProject[] = [
     client: "Elysian Fashion Magazine",
     deliverables: ["Frequency Separation", "Color Correction", "Background Replacement"],
     featured: true
+  },
+  {
+    id: "vogue-portrait-retouch",
+    title: "L’Aura High-End Beauty & Skin Retouch",
+    category: "Photo Editing",
+    shortDesc: "Commercial studio skin retouching, frequency separation, and high-fashion tone correction.",
+    fullDesc: "Flawless commercial beauty retouching preserving authentic skin texture while correcting blemishes, evening skin tones, balancing studio light reflections, and applying editorial color grading.",
+    imageUrl: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop",
+    client: "L'Aura Skincare & Atelier",
+    deliverables: ["Skin Retouching", "Frequency Separation", "Blemish Removal", "Color Grading"],
+    featured: true
+  },
+  {
+    id: "product-jewelry-retouch",
+    title: "Apex Chronograph Commercial Product Retouch",
+    category: "Photo Editing",
+    shortDesc: "Precision product retouching, glare removal, metallic luster enhancement, and clean studio compositing.",
+    fullDesc: "Comprehensive product photography post-production for luxury horology. Removed micro-scratches and dust particles, balanced metallic gold reflections, and produced crisp studio cutouts.",
+    imageUrl: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
+    client: "Apex Luxury Timepieces",
+    deliverables: ["Product Retouching", "Dust & Glare Cleanup", "Metallic Enhancement", "Alpha Cutout"],
+    featured: false
   },
   {
     id: "reels-hype-video-reel",

@@ -21,15 +21,17 @@ export const Logo: React.FC<LogoProps> = ({
     sm: 'h-8 sm:h-9 w-auto max-w-[120px]',
     md: 'h-10 sm:h-12 w-auto max-w-[160px]',
     lg: 'h-14 sm:h-16 w-auto max-w-[220px]',
-    hero: 'h-16 sm:h-20 md:h-24 w-auto max-w-[120px] sm:max-w-[150px] md:max-w-[180px] drop-shadow-[0_6px_18px_rgba(212,175,55,0.3)]',
+    hero: 'h-20 sm:h-24 md:h-28 lg:h-32 w-auto max-w-[160px] sm:max-w-[200px] md:max-w-[240px] drop-shadow-[0_8px_24px_rgba(212,175,55,0.4)]',
     footer: 'h-12 sm:h-14 w-auto max-w-[180px] drop-shadow-[0_4px_12px_rgba(212,175,55,0.2)]'
   };
 
   const imageSrc = src || (useTransparent 
-    ? '/images/logo.webp' 
+    ? '/images/logo-transparent.png' 
     : '/images/logo.png');
 
-  const fallbackPng = src || '/images/logo.png';
+  const fallbackPng = src || (useTransparent 
+    ? '/images/logo-transparent.png' 
+    : '/images/logo.png');
 
   return (
     <div 

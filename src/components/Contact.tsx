@@ -13,6 +13,8 @@ import {
   Video as VideoIcon
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { PhotoUploadZone } from './PhotoUploadZone';
+import { UploadedPhoto } from '../types';
 
 interface ContactProps {
   initialService?: string;
@@ -29,6 +31,7 @@ export const Contact: React.FC<ContactProps> = ({ initialService = '' }) => {
     projectDetails: '',
   });
 
+  const [uploadedPhotos, setUploadedPhotos] = useState<UploadedPhoto[]>([]);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -57,6 +60,7 @@ export const Contact: React.FC<ContactProps> = ({ initialService = '' }) => {
 
   const handleReset = () => {
     setSubmitted(false);
+    setUploadedPhotos([]);
     setFormData({
       name: '',
       email: '',
@@ -103,13 +107,20 @@ export const Contact: React.FC<ContactProps> = ({ initialService = '' }) => {
                   <h3 className="text-2xl font-display font-bold text-white mb-2">
                     {t.contact.form.successHeading}
                   </h3>
-                  <p className="text-sm text-neutral-300 max-w-md mx-auto mb-6 leading-relaxed">
+                  <p className="text-sm text-neutral-300 max-w-md mx-auto mb-4 leading-relaxed">
                     {t.contact.form.successMessage}
                   </p>
+                  {uploadedPhotos.length > 0 && (
+                    <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#d4af37]/10 border border-[#d4af37]/30 text-xs text-[#d4af37]">
+                      <span>{uploadedPhotos.length} photo(s) attached with your submission</span>
+                    </div>
+                  )}
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                     <a
-                      href={`https://wa.me/251911234567?text=${encodeURIComponent(
-                        `Hello LAMENTO, I just submitted a project request for "${formData.serviceNeeded}" under the name ${formData.name}.`
+                      href={`https://wa.me/${STUDIO_INFO.phoneRaw}?text=${encodeURIComponent(
+                        `Hello Teferi Gonfa / LAMENTO, I just submitted a project request for "${formData.serviceNeeded}" under the name ${formData.name}${
+                          uploadedPhotos.length > 0 ? ` with ${uploadedPhotos.length} photo(s) attached (${uploadedPhotos.map(p => p.name).join(', ')})` : ''
+                        }.`
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -220,6 +231,15 @@ export const Contact: React.FC<ContactProps> = ({ initialService = '' }) => {
                       className="w-full px-4 py-3 rounded-xl bg-[#121212] border border-white/10 focus:border-[#d4af37] text-white placeholder-neutral-500 text-sm focus:outline-none focus:ring-1 focus:ring-[#d4af37] transition-colors resize-y"
                     />
                   </div>
+
+                  {/* Photo Upload Zone */}
+                  <PhotoUploadZone
+                    photos={uploadedPhotos}
+                    onPhotosChange={setUploadedPhotos}
+                    label={t.contact.form.uploadPhoto}
+                    hint={t.contact.form.uploadPhotoHint}
+                    idPrefix="contact-photo"
+                  />
 
                   {/* Submit Button */}
                   <button

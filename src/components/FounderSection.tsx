@@ -2,6 +2,7 @@ import React from 'react';
 import { STUDIO_INFO } from '../data/content';
 import { MessageCircle, Mail } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { Logo } from './Logo';
 
 export const FounderSection: React.FC = () => {
   const { t } = useLanguage();
@@ -19,22 +20,30 @@ export const FounderSection: React.FC = () => {
               {/* Gold frame accent */}
               <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#d4af37]/25 via-transparent to-[#d4af37]/25 blur-sm" />
 
-              <div className="relative rounded-2xl overflow-hidden border border-[#d4af37]/30 bg-[#121212] shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden border border-[#d4af37]/40 bg-[#0d0d0d] shadow-2xl group">
                 <img
-                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=900&auto=format&fit=crop"
-                  alt="LAMENTO Lead Designer"
+                  src="/images/lamento-creator-badge.jpg"
+                  alt="LAMENTO Lead Designer - Teferi Gonfa"
                   referrerPolicy="no-referrer"
-                  className="w-full h-[450px] object-cover object-top filter contrast-105"
+                  className="w-full aspect-square object-cover object-center filter contrast-105 transition-transform duration-500 group-hover:scale-[1.02]"
                 />
 
-                {/* Dark overlay with name card */}
-                <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
-                  <span className="text-[11px] uppercase tracking-widest text-[#d4af37] font-semibold">
+                {/* Dark subtle gradient overlay with name card */}
+                <div className="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-black via-black/80 to-transparent">
+                  <span className="text-[11px] uppercase tracking-widest text-[#d4af37] font-semibold drop-shadow-sm">
                     {t.founder.role}
                   </span>
-                  <h3 className="text-xl font-display font-bold text-white mt-1">
-                    LAMENTO Design Studio
-                  </h3>
+                  <div className="flex items-center justify-between gap-2.5 mt-1">
+                    <div className="flex items-center gap-2">
+                      <Logo size="sm" id="founder-studio-logo" className="h-6 w-auto flex-shrink-0" />
+                      <h3 className="text-lg sm:text-xl font-display font-bold text-white tracking-wide">
+                        Teferi Gonfa (LAMENTO)
+                      </h3>
+                    </div>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#d4af37]/20 border border-[#d4af37]/40 text-[#d4af37] font-mono font-medium">
+                      Official
+                    </span>
+                  </div>
                 </div>
               </div>
 

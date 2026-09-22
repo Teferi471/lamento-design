@@ -35,6 +35,8 @@ export interface PortfolioProject {
   shortDesc: string;
   fullDesc?: string;
   imageUrl: string;
+  beforeImageUrl?: string;
+  afterImageUrl?: string;
   client?: string;
   deliverables?: string[];
   featured?: boolean;
@@ -50,6 +52,15 @@ export interface Testimonial {
   avatarUrl: string;
 }
 
+export interface UploadedPhoto {
+  id: string;
+  name: string;
+  size: number;
+  type: string;
+  previewUrl: string;
+  file?: File;
+}
+
 export interface ProjectRequestFormData {
   name: string;
   email: string;
@@ -58,6 +69,7 @@ export interface ProjectRequestFormData {
   projectDetails: string;
   budget?: string;
   timeline?: string;
+  photos?: UploadedPhoto[];
 }
 
 export interface PricingPackage {
@@ -81,6 +93,8 @@ export interface PaymentAccount {
   currency: string;
   instructions: string;
   accentColor?: string;
+  websiteUrl?: string;
+  websiteLabel?: string;
 }
 
 
